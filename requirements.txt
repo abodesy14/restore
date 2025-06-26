@@ -2,3 +2,5 @@ pandas
 duckdb
 boto3
 pyarrow
+dotenv
+requests
