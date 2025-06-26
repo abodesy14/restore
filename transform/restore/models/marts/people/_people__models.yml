@@ -1,0 +1,92 @@
+version: 2
+
+models:
+  - name: all_people
+    description: Mart that combines random people data, enriched with predicted age data from agify.io.
+    columns:
+      - name: gender
+        description: Gender of person
+      - name: title
+        description: Title of person, such as Mr, Miss, Ms
+      - name: first_name
+        description: First name of person
+      - name: last_name
+        description: Last name of person
+      - name: address_street_number
+        description: Street number of person address
+      - name: address_street_name
+        description: Street name of person address
+      - name: address_city
+        description: City of person address
+      - name: address_state
+        description: State of person address?
+      - name: address_country
+        description: Country of person address
+      - name: address_postcode
+        description: Postal code of person address
+      - name: address_latitude
+        description: Latitude of person address
+      - name: address_longitude
+        description: Longitude of person address
+      - name: timezone_offset
+        description: Timezone offset in hours of person address
+      - name: timezone_description
+        description: Description of timezone of person address
+      - name: email
+        description: Email address of person
+      - name: uuid
+        description: User id of person
+      - name: username
+        description: Username of person
+      - name: password
+        description: Password of person
+      - name: password_salt
+        description: Hashed random string for person password
+      - name: md5
+        description: 32 character hexadecimal string to encrypt data
+      - name: sha1
+        description: 40 character hexadecimal string to encrypt data
+      - name: sha256
+        description: 64 character hexadecimal string to encrypt data
+      - name: dob
+        description: Timestamp representing date of birth of person
+      - name: age
+        description: Age of person
+      - name: registered_date
+        description: Unknown
+      - name: registered_age
+        description: Unknown
+      - name: phone
+        description: Phone number of person
+      - name: cell
+        description: Cell phone number of person
+      - name: ssn_type
+        description: Type of SSN
+      - name: ssn
+        description: SSN number
+      - name: picture_large
+        description: URL to large picture of person
+      - name: picture_medium
+        description: URL to medium picture of person
+      - name: picture_thumbnail
+        description: URL to thumbnail picture of person
+      - name: nationality
+        description: Nationality of person
+      - name: processed_ts
+        description: Timestamp of record processing
+      - name: full_name
+        description: Full name of person, represented as a concatenation of first and last name
+      - name: password_has_upper
+        description: Binary field indicating if a person's password includes an uppercase character
+      - name: password_has_lower
+        description: Binary field indicating if a person's password includes an lowercase character
+      - name: password_has_numeric
+        description: Binary field indicating if a person's password includes a numeric character
+      - name: password_length
+        description: Number of characters present in a person's password
+      - name: good_password
+        description: Binary scoring field. 1 if the person has a "good password", indicated by the presence of uppercase, lowercase, and numeric characters. 0 if not.
+      - name: predicted_age
+        description: Predicted age of person from agify.io
+      - name: age_delta
+        description: Difference between person's actual and predicted age. A positive value indicates they are older than their predicted age, and vice versa.

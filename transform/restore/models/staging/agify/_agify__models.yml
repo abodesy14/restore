@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_agify_predicted_age
+    description: Staging model for predicted ages returned by agify.io. This model is used to enrich the data returned by the random people api.
+    columns:
+      - name: first_name
+        description: First name of person
+        tests:
+          - unique
+      - name: predicted_age
+        description: Predicted age of person
+      - name: rows_examined
+        description: Amount of rows examined for the prediction
