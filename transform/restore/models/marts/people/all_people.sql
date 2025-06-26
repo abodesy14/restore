@@ -13,7 +13,7 @@ predicted_ages as (
 )
 
 select 
-    *,
+    * exclude(dob),
     concat(first_name, ' ', last_name) as full_name,
     len(password) as password_length,
     if(regexp_matches(password, '[A-Z]'), 1, 0) AS password_has_upper,
@@ -24,5 +24,7 @@ select
     if(password_has_upper + password_has_lower + password_has_numeric + password_has_length >= 3, 1, 0) as good_password,
     age - predicted_age as age_delta,
     split_part(timezone_offset, ':', 1) as hour_tz_adjustment,
-    split_part(timezone_offset, ':', 2) as minute_tz_adjustment
+    split_part(timezone_offset, ':', 2) as minute_tz_adjustment,
+    cast(dob as date) as dob
 from predicted_ages
+qualify row_number() over (partition by uuid order by processed_ts desc) = 1
