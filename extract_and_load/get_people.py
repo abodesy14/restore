@@ -89,7 +89,7 @@ print(f"Uploaded to s3://{bucket_name}/{s3_key}")
 
 
 # create duckdb connection and read from s3
-con = duckdb.connect("/Users/adambeaudet/Github/restore/transform/restore/random_people.duckdb")
+con = duckdb.connect("../transform/restore/random_people.duckdb")
 
 con.execute(f"""
     SET s3_region='{os.environ['AWS_REGION']}';
