@@ -86,7 +86,15 @@ models:
         description: Number of characters present in a person's password
       - name: good_password
         description: Binary scoring field. 1 if the person has a "good password", indicated by the presence of uppercase, lowercase, and numeric characters. 0 if not.
+      - name: password_complexity_score
+        description: Score to represent person's password complexity. Ranges from 0 (least complex) to 3 (most complex).
       - name: predicted_age
         description: Predicted age of person from agify.io
       - name: age_delta
         description: Difference between person's actual and predicted age. A positive value indicates they are older than their predicted age, and vice versa.
+      - name: password_has_length
+        description: Binary field - 1 if the person's password is longer than 8 characters, 0 else.
+      - name: hour_tz_adjustment
+        description: Hour adjustment for person's timezone
+      - name: minute_tz_adjustment
+        description: Minute adjustment for person's timezone
