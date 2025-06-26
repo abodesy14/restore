@@ -1,6 +1,6 @@
 # restore
 
-Welcome to my ELT project
+Welcome to my ELT project. Below is a summary of the steps taken to create this project. Instructions are also listed for running this application.
 
 <strong>Tools/Languages used:</strong>
 - Python, SQL, dbt, AWS S3, DuckDB, Git, Jupyter notebooks
@@ -15,14 +15,15 @@ To run `get_people.py`, I'll need to securely send over my AWS creds from my .en
 
 <strong>General ELT Pipeline:</strong><br>
 - Create AWS bucket
-- Python script to hit random people api
+- Python script to hit Random People API
 - Write results to S3
-- Load from S3 to duckdb
+- Load from S3 to DuckDB
 - Run `agify.py` for data enrichment
+- Run dbt models to transform and clean data
 
-To fully automate this, I would have created a step function to run the `get_people.py` script, followed by the `agify.py` script. That was a bit of a manual process when building this out. It was easy for my age prediction table to fall behind since I could only pass in 100 names per day, while that wasn't a limitation with the random people api. 
+To fully automate this, I would have created a step function to run the `get_people.py` script, then the `agify.py` script, followed by any dbt models to transform the newly ingested data. This sequence of steps was manually done when creating the project. It was easy for my age prediction table to fall behind since I could only pass in 100 names per day, however that wasn't a limitation with the Random People API. 
 
-<strong>Viewing Analysis Section:</strong><br>
+<strong>Viewing my Analysis:</strong><br>
 To view the Analysis section of my project, go to restore -> analysis -> people_analysis.ipynb
 
-The notebook should be pre-loaded on open. If not, click `Run All` at the top to run the entire notebook, or `ctrl+Enter` in an individual cell to run just one query. If it asks for kernel, say virtual environment (if you set one up).
+The notebook should be pre-loaded on open. If not, click `Run All` at the top to run the entire notebook, or `ctrl+Enter` in an individual cell to run just one query. If it asks for kernel, select virtual environment (if you have one set up).
