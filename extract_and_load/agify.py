@@ -7,7 +7,7 @@ from time import sleep
 con = duckdb.connect("../transform/restore/random_people.duckdb") 
 
 # get all names we've already retrieved from random people api - those are the ones we want to enrich
-first_names = con.execute("SELECT DISTINCT first_name FROM people_raw limit 1").fetchall()
+first_names = con.execute("SELECT DISTINCT first_name FROM people_raw").fetchall()
 first_names = [name[0] for name in first_names]
 
 
